@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>uqbar</groupId>
+	<artifactId>apo-parent</artifactId>
+	<version>1.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>uqbar</groupId>
+		<artifactId>uqbar-parent-project</artifactId>
+		<version>1.6</version>
+	</parent>
+
+	<properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<encoding>UTF-8</encoding>
+		<scala.version>2.10.2</scala.version>
+		<apo-version>3.0.2-SNAPSHOT</apo-version>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:http://xp-dev.com/svn/uqbar/projects/parents/apo-parent/tags/apo-parent-1.0</connection>
+		<developerConnection>scm:svn:http://xp-dev.com//svn/uqbar/projects/parents/apo-parent/tags/apo-parent-1.0</developerConnection>
+		<url>scm:svn:http://xp-dev.com/svn/uqbar/projects/parents/apo-parent/tags/apo-parent-1.0</url>
+	</scm>
+
+	<dependencies>
+		<!-- SCALA -->
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_2.10</artifactId>
+			<version>2.0.M6-SNAP24</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-tools.testing</groupId>
+			<artifactId>specs_2.10</artifactId>
+			<version>1.6.9</version>
+			<scope>test</scope>
+		</dependency>
+<!-- 		/SCALA -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<!-- <goal>add-source</goal> -->
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Path relativos a la estructura del svn -->
+	<!-- <modules> -->
+	<!-- <module>../../apo/apo-core/trunk</module> -->
+	<!-- <module>../../apo/apo-poo/trunk</module> -->
+	<!-- <module>../../apo/apo-pot/trunk</module> -->
+	<!-- </modules> -->
+
+<!-- 	<modules> -->
+<!-- 		<module>../apo/apo/apo-core/trunk</module> -->
+<!-- 		<module>../apo/apo/apo-poo/trunk</module> -->
+<!-- 		<module>../apo/apo/apo-pot/trunk</module> -->
+<!-- 	</modules> -->
+</project>
